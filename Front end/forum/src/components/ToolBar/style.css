@@ -1,0 +1,15 @@
+.toolbar {
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #eee;
+    background-color: #333333;
+}
+.button {
+    cursor: pointer;
+    margin-right: 20px;
+}
+.button:hover {
+    color: #ffb428;
+
+}

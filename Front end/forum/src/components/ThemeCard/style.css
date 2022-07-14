@@ -1,4 +1,28 @@
 .productCard {
     width: 100%;
-    
+    background-color: #e1e1e1;
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 2px solid #333333;
+    transition: 0.1s;
+}
+
+.productCard img {
+    width: 100%;
+    background-color: #e1e1e1;
+}
+.productCard:hover {
+    transform: scale(1.01);
+    border-bottom: 2px solid #ffb428;
+}
+
+.cardTop {
+    width: 100%;
+    background-color: #333333;
+    color: #eee;
+    padding: 20px 10px;
+
+}
+.productCard:last-child {
+    border: none;
 }

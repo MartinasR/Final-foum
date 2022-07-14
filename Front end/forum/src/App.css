@@ -1,38 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+body {
+    background-color: #d3d3d3;
+}
 .App {
-  text-align: center;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.home-page {
+    width: 100%;
+    height: 100%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login {
+    width: 400px;
+    height: 400px;
+    background-color: #eaeaea;
+    padding: 50px;
+    margin-top: -64px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.login Button {
+    background-color: grey;
+    color: white;
+    width: 100%;
+    border-radius: 0;
 }
-
-.App-link {
-  color: #61dafb;
+.login Button:focus {
+    background-color: grey;
+    color: white;
+    outline: none;
 }
+.login input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px black solid;
+    outline: none;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.reg-btn {
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.userCard {
+    margin-top: 50px;
+    padding: 50px;
+    width: 100%;
+    background-color: #eaeaea;
+}
+.userCard img{
+    width: 200px;
+}
+.updateButton {
+    width: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: ease-in-out 0.1s;
+    text-align: center;
+    cursor: pointer;
+    background-color: #808080;
+    color: white;
+}
+.updateButton:hover {
+    background-color: #171717;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.info div {
+    margin-top: 15px;
+}
+.uploadCard {
+    background-color: #eaeaea;
+    padding: 50px;
+    margin-top: -64px;
+}
+.uploadCard input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    outline: none;
+    border: none;
+    border-bottom: #171717 2px solid;
+}
+.uploadCard textarea {
+    width: 100%;
+    height: 100px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+    padding: 10px;
+    resize: none;
+    margin-bottom: 20px;
+}
+.imageUploadBtn {
+    width: 100%;
+    padding: 10px;
+    background-color: #808080;
+    border: 1px solid #808080;
+    color: white;
+    margin-bottom: 20px;
+}
+.imageUploadBtn:hover {
+    background-color: #171717;
+
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.display-no {
+    display: flex;
+}
+.addToFav {
+    transition: 0.1s;
+}
+.addToFav:hover {
+    transform: scale(1.1);
+}
+.answerComp {
+    border-bottom: 2px solid #171717;
+}
+.mb-100:last-child {
+    margin-bottom: 100px;
+}
+.mb-0:last-child {
+    margin-bottom: 0;
+}
+.userSide {
+    width: 20%;
+    background-color: #eaeaea;
+    padding: 20px;
+}
+.userSide img {
+    width: 100px;
+}
+.answerSide {
+    width: 80%;
+    background-color: #e1e1e1;
+}
+.comment {
+    width: 100%;
+    background-color: #e1e1e1;
+    padding: 10px;
+}
+.dateLine {
+    padding: 10px;
+}
+.padding {
+    padding: 0 20px;
+}
+.addToFavoritesBtn {
+    background-color: #e1e1e1;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    font-size: 100%;
+}
+.addToFavoritesBtn:hover {
+    transform: scale(1.2);
+}
+.modalCardBtn {
+    background-color: grey;
+    color: white;
+    width: 100%;
+    border-radius: 0;
+}
+.modalCardBtn:focus {
+    background-color: grey;
+    color: white;
+    outline: none;
+}
+.modalCard input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px black solid;
+    outline: none;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.answerSide img {
+    width: 150px;
+}
+.answerSide {
+    overflow: hidden;
+}
+.column {
+    flex-direction: row;
+}
+.btn-w25 {
+    width: 25%;
+}
+.w-sm-100 {
+    width: 75%;
+}
+.m-10 {
+    margin: 0 5px;
+}
+.w50 {
+    width: 50%;
+}
+.toolbar {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+@media only screen and (min-width: 991px) {
+    .w-sm-100 {
+        width: 20%;
+    }
+    .answerWidth {
+        width: 10%;
+    }
+    .themeWidth {
+        width: 30%;
+    }
+}
+@media only screen and (max-width: 991px) {
+    .productCard {
+        flex-direction: column;
+        text-align: center;
+    }
+    .w-sm-100 {
+        width: 100%;
+    }
+    .answerWidth {
+        width: 100%;
+    }
+    .themeWidth {
+        width: 100%;
+    }
+    .productCard div {
+        margin-bottom: 10px;
+    }
+    .cardTop {
+        display: none;
+    }
+    .display-no {
+        display: none;
+    }
+    .answerSide {
+        width: 70%;
+    }
+    .userSide {
+        width: 30%;
+    }
+}
+@media only screen and (max-width: 773px) {
+    .column {
+        flex-direction: column;
+    }
+    .btn-w25 {
+        width: 100%;
+    }
+    .userCard {
+        padding: 10px;
+    }
+    .userCard img {
+        margin-bottom: 20px;
+    }
+    .padding {
+        padding: 0;
+    }
+    .updateButton {
+        width: 100%;
+        margin: 0;
+    }
+    .m-10 {
+        margin: 0;
+    }
+    .w50 {
+        width: 100%;
+        height: 100%;
+        margin-top: 0;
+        justify-content: center;
+        align-items: center;
+    }
+    .productCardInside {
+        flex-direction: column;
+    }
 }
