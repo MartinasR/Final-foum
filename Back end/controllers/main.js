@@ -2,7 +2,7 @@ const userDb = require('../models/userSchema')
 const productDb = require('../models/productSchema')
 const answersDb = require('../models/answerSchema')
 const bcrypt = require('bcrypt')
-const {cloudinary} = require('../helpers/imageUpload')
+
 
 module.exports = {
     registration: async (req, res) => {
@@ -33,19 +33,6 @@ module.exports = {
         } else {
             return res.send({success: false, message: 'prisijungimas negalimas'})
         }
-    },
-    uploadPicture: async (req, res) => {
-        const {image, email} = req.body
-        const uploadImage = await cloudinary.uploader.upload(image, {upload_preset: 'ml_default'}, async (err, response) => {
-            if (!err) {
-                const updatedUser = await userDb.findOneAndUpdate({email: email}, {profileImage: response.url})
-                if (updatedUser) {
-                    res.send({success: true, message: 'nuotrauka patalpinta', updatedUser})
-                } else {
-                    return res.send({success: false, message: 'kazkas ne taip'})
-                }
-            } else return res.send({success: false, message: 'nuotraukos ikelimas negalimas'})
-        })
     },
     upload: async (req, res) => {
         const {theme} = req.body

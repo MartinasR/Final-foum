@@ -113,7 +113,6 @@ const ProfilePage = ({user}) => {
                     </div>
                 </div>
                 <div className='d-flex btn-w25 flex-column justify-content-between'>
-                    <div onClick={() => setModal(true)} className='updateButton'>Pakeisti profilio nuotrauką</div>
                     <div onClick={() => setEmailModal(true)} className='updateButton'>Pakeisti el. pašto adresą</div>
                     <div onClick={() => navigate('/productUpload')} className='updateButton'>Kurti naują temą</div>
                 </div>

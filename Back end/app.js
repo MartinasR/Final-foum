@@ -14,6 +14,8 @@ const corsOptions = {
         callback(new Error('Not allowed by CORS'));
     }
 }
+
+// serverio pajungimas
 app.use(cors(corsOptions))
 app.listen(4000);
 app.use(bodyParser.json({limit: "50mb"}));

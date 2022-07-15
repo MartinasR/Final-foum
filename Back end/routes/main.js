@@ -1,14 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const {registration, login, upload, getAllProducts, getSingle, findUser, sendAnswer, getAnswersById, getUserThemes,
-    getUserAnswers, uploadPicture, getFavorites, changeEmail
+    getUserAnswers, getFavorites, changeEmail
 } = require("../controllers/main");
 const {validateUser, validateEmail, validateText} = require("../middleware/userMiddleware")
 
 router.post("/register",validateUser, registration);
 router.post("/login", login);
 router.post("/upload", validateText, upload);
-router.post("/uploadPicture", uploadPicture);
 router.get("/getAllProducts", getAllProducts);
 router.post("/getSingle/:id", getSingle);
 router.post("/changeEmail", validateEmail, changeEmail);
