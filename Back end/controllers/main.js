@@ -56,6 +56,15 @@ module.exports = {
             return res.send({success: false, message: "nepavyksta pasiekti produktu"})
         }
     },
+    deletePost: async (req, res) => {
+        const { itemId } = req.body;
+        productDb.findOneAndDelete({ _id: itemId }).then((resp) => {
+          if (resp) {
+            return res.send({ success: true });
+          }
+        });
+      },
+
     getSingle: async (req, res) => {
         const {id} = req.params
         const {email} = req.body

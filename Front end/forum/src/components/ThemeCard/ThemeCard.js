@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import './style.css'
 import {useNavigate} from "react-router";
+import {Trash3} from "react-bootstrap-icons";
 
-const ThemeCard = ({item, setFavorites, favorites, remove, user}) => {
+const ThemeCard = ({item, setFavorites, favorites, remove, user, getUserThemes}) => {
     const navigate = useNavigate()
     const date = new Date(item.timestamp)
     const [deleteBtn, setDeleteBtn] = useState(null)
-
     function addToFavorites() {
         if (!favorites.includes(item._id)) {
             setFavorites([...favorites, item._id])
@@ -30,6 +30,28 @@ const ThemeCard = ({item, setFavorites, favorites, remove, user}) => {
         }
     }, [favorites, item._id, remove])
 
+    async function deletePost () {
+        const body = {
+            itemId: item._id
+        }
+        const options = {
+            method: "Post",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(body)
+        }
+
+        const res = await fetch('http://localhost:4000/deletePost', options)
+        const data = await res.json().catch(e => {
+            console.log(e)
+        })
+        if (data.success) {
+            getUserThemes()
+        }
+    }
+
     return (
         <div className='d-flex w-100 productCard justify-content-between'>
             <div onClick={() => navigate(`/singleTheme/${item._id}`)}
@@ -41,10 +63,13 @@ const ThemeCard = ({item, setFavorites, favorites, remove, user}) => {
                 {item.lastAnswer === '-' ? <div className=' w-sm-100'/> :
                     <div className=' w-sm-100'>{item.lastAnswer}</div>}
             </div>
-            {user && user.email === item.email && item.notification && <div><img style={{width: '19px'}}
-                                                                                 src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.iconfinder.com%2Fdata%2Ficons%2Fshopping-e-commerce-2-1%2F32%2FNotification-Alarm-Bell-Notify-512.png&f=1&nofb=1"
-                                                                                 alt=""/></div>}
+            <div style={{width: '19px'}}>
+                {user && user.email === item.email && item.notification && <div className='notification'><img style={{width: '19px'}}
+                                                                                                              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.iconfinder.com%2Fdata%2Ficons%2Fshopping-e-commerce-2-1%2F32%2FNotification-Alarm-Bell-Notify-512.png&f=1&nofb=1"
+                                                                                                              alt=""/></div>}
+            </div>
 
+            {window.location.pathname === '/profile' && <Trash3 onClick={() => deletePost()} height={20} width={20} />}
             {window.location.pathname !== '/favorites' && window.location.pathname !== '/profile' && !favorites.includes(item._id) ?
                 <div onClick={() => addToFavorites()} className='addToFavoritesBtn'>
                     <img

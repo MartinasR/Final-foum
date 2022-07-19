@@ -84,7 +84,7 @@ const ProfilePage = ({user}) => {
         setUser(data.user)
     }
 
-    const mappedProducts = myThemes.map((x, i) => <ThemeCard user={user} key={i} item={x}/>)
+    const mappedProducts = myThemes.map((x, i) => <ThemeCard getUserThemes={getUserThemes} user={user} key={i} item={x}/>)
     return (
         <div className='container'>
             {user1 && <div className="userCard column shadow d-flex justify-content-around">
